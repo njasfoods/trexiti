@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://trexiti.com" />
         <meta property="og:image" content="/og-image.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </head>
