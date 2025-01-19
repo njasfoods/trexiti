@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-700 via-violet-800 to-indigo-900 text-white">
-     <Header/>
+      <Header />
       <main className="max-w-6xl mx-auto px-4 py-12">
         <section className="mb-24">
           <h1 className="text-6xl font-bold mb-6 leading-tight">
@@ -186,6 +186,63 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* Portfolio section */}
+        <section id="portfolio" className="mb-16 sm:mb-24">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
+            Our Portfolio
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Luxury Real Estate",
+                image: "/placeholder.svg?height=300&width=400",
+                slug: "luxury-real-estate",
+              },
+              {
+                title: "Gourmet Restaurant",
+                image: "/placeholder.svg?height=300&width=400",
+                slug: "gourmet-restaurant",
+              },
+              {
+                title: "Tech Startup Landing",
+                image: "/placeholder.svg?height=300&width=400",
+                slug: "tech-startup-landing",
+              },
+            ].map((project, index) => (
+              <Link
+                href={`/portfolio/${project.slug}`}
+                key={index}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-lg">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    width={400}
+                    height={300}
+                    className="object-cover w-full h-64 transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <h3 className="text-white text-xl font-semibold p-4">
+                      {project.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/portfolio">
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-primary hover:shadow-lg"
+              >
+                View All Projects
+              </Button>
+            </Link>
+          </div>
+        </section>
 
         <section id="about" className="mb-24">
           <h2 className="text-4xl font-bold mb-12">About Trexiti</h2>
@@ -287,7 +344,6 @@ export default function Home() {
           </Link>
         </section>
       </main>
-    
     </div>
   );
 }

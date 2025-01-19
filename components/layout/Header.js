@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+"use client";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,15 +10,15 @@ const Header = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
       <header
         className={`py-2.5 px-4 fixed w-full z-50 transition-all duration-300 ease-in-out text-white ${
-          isScrolled ? 'bg-indigo-900 shadow-md' : 'bg-transparent'
+          isScrolled ? "bg-indigo-900 shadow-md" : "bg-transparent"
         }`}
       >
         <nav className="flex justify-between items-center max-w-6xl mx-auto">
@@ -26,36 +27,44 @@ const Header = () => {
           </Link>
           <ul className="hidden md:flex space-x-6">
             <li>
-              <a
+              <Link
                 href="#services"
                 className="hover:text-purple-300 transition-colors"
               >
                 Services
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                href="/#portfolio"
+                className="hover:text-purple-300 transition-colors"
+              >
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/#about"
                 className="hover:text-purple-300 transition-colors"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#testimonials"
+              <Link
+                href="/#testimonials"
                 className="hover:text-purple-300 transition-colors"
               >
                 Testimonials
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 className="hover:text-purple-300 transition-colors"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
           {/* Hamburger menu for small screens */}
